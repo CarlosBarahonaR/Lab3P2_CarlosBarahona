@@ -6,6 +6,7 @@
 package lab3p2_carlosbarahona;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -20,6 +21,7 @@ public class Lab3P2_CarlosBarahona {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner r = new Scanner(System.in);
+        Random r2 = new Random();
         Programadores david = new Programadores("david", "1234", "David", "Apellido", 1, "Admin", 5, 50000, "Java", "9-5");
         ArrayList usuarios = new ArrayList();
         usuarios.add(david);
@@ -32,8 +34,8 @@ public class Lab3P2_CarlosBarahona {
         while (opcion != 3) {
             System.out.println("Bienvenido a Hugo\n"
                     + "¿Qué desea hacer?\n"
-                    + "1) Iniciar sesión"
-                    + "2) Registrarse "
+                    + "1) Iniciar sesión\n"
+                    + "2) Registrarse\n"
                     + "3) Salir");
             opcion = r.nextInt();
             switch (opcion) {
@@ -45,36 +47,60 @@ public class Lab3P2_CarlosBarahona {
                     int item = 0;
                     int usuarioN = 0;
                     for (int i = 0; i < usuarios.size(); i++) {
-                        String usuario2 = ((Administradores) usuarios.get(i)).getUsuario();
-                        String contraseña2 = ((Administradores) usuarios.get(i)).getContraseña();
-                        String usuario3 = ((Programadores) usuarios.get(i)).getUsuario();
-                        String contraseña3 = ((Programadores) usuarios.get(i)).getContraseña();
-                        String usuario4 = ((Motoristas) usuarios.get(i)).getUsuario();
-                        String contraseña4 = ((Motoristas) usuarios.get(i)).getContraseña();
-                        String usuario5 = ((Clientes) usuarios.get(i)).getUsuario();
-                        String contraseña5 = ((Clientes) usuarios.get(i)).getContraseña();
+                        String usuario2 = "";
+                        String contraseña2 = "";
+                        String usuario3 = "";
+                        String contraseña3 = "";
+                        String usuario4 = "";
+                        String contraseña4 = "";
+                        String usuario5 = "";
+                        String contraseña5 = "";
 
-                        if (usuario.equals(usuario2) && contraseña.equals(contraseña2)) {
-                            item = i;
-                            usuarioN = 1;
-                            i = usuarios.size();
-                        } else if (usuario.equals(usuario3) && contraseña.equals(contraseña3)) {
-                            item = i;
-                            usuarioN = 2;
-                            i = usuarios.size();
-                        } else if (usuario.equals(usuario4) && contraseña.equals(contraseña4)) {
-                            item = i;
-                            usuarioN = 3;
-                            i = usuarios.size();
-                        } else if (usuario.equals(usuario5) && contraseña.equals(contraseña5)) {
-                            item = i;
-                            usuarioN = 4;
-                            i = usuarios.size();
-                        } else {
-                            item = 1000;
+                        if (usuarios.get(i) instanceof Administradores) {
+                            usuario2 = ((Administradores) usuarios.get(i)).getUsuario();
+
+                            contraseña2 = ((Administradores) usuarios.get(i)).getContraseña();
+                            if (usuario.equals(usuario2) && contraseña.equals(contraseña2)) {
+                                item = i;
+                                usuarioN = 1;
+                                i = usuarios.size();
+                            }else{
+                            item=1000;
+                            }
+                        } else if (usuarios.get(i) instanceof Programadores) {
+                            usuario3 = ((Programadores) usuarios.get(i)).getUsuario();
+                            contraseña3 = ((Programadores) usuarios.get(i)).getContraseña();
+                            if (usuario.equals(usuario3) && contraseña.equals(contraseña3)) {
+                                item = i;
+                                usuarioN = 2;
+                                i = usuarios.size();
+                            }else{
+                            item=1000;
+                            }
+                        } else if (usuarios.get(i) instanceof Motoristas) {
+                            usuario4 = ((Motoristas) usuarios.get(i)).getUsuario();
+                            contraseña4 = ((Motoristas) usuarios.get(i)).getContraseña();
+                            if (usuario.equals(usuario4) && contraseña.equals(contraseña4)) {
+                                item = i;
+                                usuarioN = 3;
+                                i = usuarios.size();
+                            }else{
+                            item=1000;
+                            }
+                        } else if (usuarios.get(i) instanceof Clientes) {
+                            usuario5 = ((Clientes) usuarios.get(i)).getUsuario();
+                            contraseña5 = ((Clientes) usuarios.get(i)).getContraseña();
+                            if (usuario.equals(usuario5) && contraseña.equals(contraseña5)) {
+                                item = i;
+                                usuarioN = 4;
+                                i = usuarios.size();
+                            }else{
+                            item=1000;
+                            }
                         }
+
                         if (item <= usuarios.size()) {
-                            if (usuarios.get(item) instanceof Administradores) {
+                            if (usuarios.get(item) instanceof Administradores && usuarioN == 1) {
                                 System.out.println("¿Que desea hacer?\n"
                                         + "1) Modificar mi información\n"
                                         + "2) Visualizar mi información\n"
@@ -136,17 +162,17 @@ public class Lab3P2_CarlosBarahona {
 
                                         }
                                         case 2: {
-                                            System.out.println(((Administradores) usuarios.get(item)));
+                                            System.out.println( usuarios.get(item));
                                         }
                                     }
 
                                 }
 
-                            } else if (usuarios.get(item) instanceof Programadores) {
+                            } else if (usuarios.get(item) instanceof Programadores && usuarioN==2) {
                                 System.out.println("¿Que desea hacer?"
                                         + "1) ");
 
-                            } else if (usuarios.get(item) instanceof Motoristas) {
+                            } else if (usuarios.get(item) instanceof Motoristas && usuarioN==3) {
                                 System.out.println("¿Que desea hacer?\n"
                                         + "1) Modificar mi información\n"
                                         + "2) Visualizar mi información\n"
@@ -221,14 +247,14 @@ public class Lab3P2_CarlosBarahona {
                                         }
 
                                         case 2: {
-                                            System.out.println(((Motoristas) usuarios.get(item)));
+                                            System.out.println( usuarios.get(item));
                                         }
 
                                     }
 
                                 }
 
-                            } else if (usuarios.get(item) instanceof Clientes) {
+                            } else if (usuarios.get(item) instanceof Clientes && usuarioN==4) {
                                 System.out.println("¿Que desea hacer?\n"
                                         + "1) Comprar comida\n"
                                         + "2) Comprar articulo\n"
@@ -239,11 +265,80 @@ public class Lab3P2_CarlosBarahona {
                                 int opcion2 = r.nextInt();
                                 while (opcion2 != 6) {
                                     switch (opcion2) {
-                                        case 1:{
-                                        break;
+                                        case 1: {
+                                            System.out.println("¿De cual restaurante desea comprar?");
+                                            for (int x = 0; x < restaurante.size(); x++) {
+                                                System.out.println(x + ") " + restaurante.get(x));
+                                            }
+                                            String restaurante2 = r.next();
+                                            int n = 0;
+                                            for (int y = 0; y < restaurante.size(); y++) {
+                                                String nombre = ((Restaurante) restaurante.get(y)).getNombre();
+                                                if (restaurante2.equals(nombre)) {
+                                                    n = i;
+                                                    i = restaurante.size();
+                                                } else {
+                                                    n = 1000;
+                                                }
+                                            }
+                                            if (n <= restaurante.size()) {
+                                                if (restaurante.get(n) instanceof Restaurante) {
+                                                    System.out.println("¿Que comida desea comprar?");
+                                                    for (int x = 0; x < restaurante.get(n).getListaComidas().size(); x++) {
+                                                        System.out.println(x + ") " + restaurante.get(n).getListaComidas().get(x));
+                                                    }
+                                                    String comida2 = r.next();
+                                                    int n2 = 0;
+                                                    for (int y = 0; y < restaurante.get(n).getListaComidas().size(); y++) {
+                                                        String nombre = (restaurante.get(n).getListaComidas().get(y).getNombre2());
+                                                        if (comida2.equals(nombre)) {
+                                                            n2 = i;
+                                                            i = restaurante.get(n).getListaComidas().size();
+                                                        } else {
+                                                            n2 = 1000;
+                                                        }
+                                                    }
+                                                    if (n2 <= restaurante.get(n).getListaComidas().size()) {
+                                                        if (restaurante.get(n).getListaComidas().get(n2) instanceof Comidas) {
+                                                            System.out.println("¿Desea agregar un complemento?");
+                                                            String resp = r.next();
+                                                            if (resp.equalsIgnoreCase("Si")) {
+                                                                System.out.println("¿Que acompañamiento desea agregar?");
+                                                                for (int x = 0; x < restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().size(); x++) {
+                                                                    System.out.println(x + ") " + restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().get(x));
+                                                                }
+                                                                String acompañamiento = r.next();
+                                                                int n3 = 0;
+                                                                for (int y = 0; y < restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().size(); y++) {
+                                                                    String nombre = restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().get(y).getNombre3();
+                                                                    if (acompañamiento.equals(nombre)) {
+                                                                        n3 = i;
+                                                                        i = restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().size();
+                                                                    } else {
+                                                                        n3 = 1000;
+                                                                    }
+                                                                }
+                                                                if (n3 <= restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().size()) {
+                                                                    if (restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().get(n3) instanceof Acompañamientos) {
+                                                                        int total= restaurante.get(n).getListaComidas().get(n2).getPrecio()+restaurante.get(n).getListaComidas().get(n2).getListaAcompañamientos().get(n3).getPrecioAdicional();
+                                                                        System.out.println("Su total es:"+ " "+ total);
+                                                                         
+                                                                        int randomNum= r2.nextInt((motoristas.size()-0)+1)+0;
+                                                                    }
+                                                                }
+                                                            } else {
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                }
+
+                                            }
+                                            break;
                                         }
-                                        case 2:{
-                                        break;
+                                        case 2: {
+                                            break;
                                         }
                                         case 3: {
                                             System.out.println("¿Que desea modificar?\n"

@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class Restaurante {
+
     private String ubicacion;
     private String nombre;
     private int RTN;
@@ -71,9 +72,7 @@ public class Restaurante {
 
     @Override
     public String toString() {
-        return "Restaurante{" + "ubicacion=" + ubicacion + ", nombre=" + nombre + ", RTN=" + RTN + ", slogan=" + slogan + ", listaComidas=" + listaComidas + '}';
+        return "nombre=" + nombre;
     }
-    
-    
-    
+
 }

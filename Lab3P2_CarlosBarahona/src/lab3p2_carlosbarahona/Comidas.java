@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class Comidas extends Restaurante {
+
     private String ID;
     private String nombre2;
     private int precio;
@@ -37,8 +38,6 @@ public class Comidas extends Restaurante {
         this.cantidadAcompañamientos = cantidadAcompañamientos;
         this.listaAcompañamientos = listaAcompañamientos;
     }
-
-   
 
     public String getID() {
         return ID;
@@ -82,8 +81,7 @@ public class Comidas extends Restaurante {
 
     @Override
     public String toString() {
-        return "Comidas{" + "ID=" + ID + ", nombre=" + nombre2 + ", precio=" + precio + ", cantidadAcompa\u00f1amientos=" + cantidadAcompañamientos + ", listaAcompa\u00f1amientos=" + listaAcompañamientos + '}';
+        return "nombre=" + nombre2;
     }
-    
-    
+
 }

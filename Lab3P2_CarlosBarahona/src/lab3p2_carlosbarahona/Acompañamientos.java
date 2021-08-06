@@ -30,15 +30,11 @@ public class Acompañamientos extends Comidas {
         this.precioAdicional = precioAdicional;
     }
 
-   
-    
-    
-
     public String getNombre3() {
         return nombre3;
     }
 
-    public void setNombre(String nombre3) {
+    public void setNombre3(String nombre3) {
         this.nombre3 = nombre3;
     }
 
@@ -60,7 +56,7 @@ public class Acompañamientos extends Comidas {
 
     @Override
     public String toString() {
-        return "Acompa\u00f1amientos{" + "nombre=" + nombre3 + ", tipo=" + tipo + ", precioAdicional=" + precioAdicional + '}';
+        return "nombre=" + nombre3;
     }
 
 }
