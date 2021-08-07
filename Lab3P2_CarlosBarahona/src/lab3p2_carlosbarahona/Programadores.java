@@ -9,10 +9,8 @@ package lab3p2_carlosbarahona;
  *
  * @author Admin
  */
-public class Programadores {
+public class Programadores extends Usuario {
 
-    private String usuario;
-    private String contraseña;
     private String nombre;
     private String apellido;
     private int ID;
@@ -22,9 +20,8 @@ public class Programadores {
     private String lenguajeProgDom;
     private String horarioTrabajo;
 
-    public Programadores(String usuario, String contraseña, String nombre, String apellido, int ID, String puesto, int añosCargo, int salarioBase, String lenguajeProgDom, String horarioTrabajo) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+    public Programadores(String nombre, String apellido, int ID, String puesto, int añosCargo, int salarioBase, String lenguajeProgDom, String horarioTrabajo, String usuario, String contraseña) {
+        super(usuario, contraseña);
         this.nombre = nombre;
         this.apellido = apellido;
         this.ID = ID;
@@ -33,22 +30,6 @@ public class Programadores {
         this.salarioBase = salarioBase;
         this.lenguajeProgDom = lenguajeProgDom;
         this.horarioTrabajo = horarioTrabajo;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
     }
 
     public String getNombre() {
@@ -117,7 +98,7 @@ public class Programadores {
 
     @Override
     public String toString() {
-        return "Programadores{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellido=" + apellido + ", ID=" + ID + ", puesto=" + puesto + ", a\u00f1osCargo=" + añosCargo + ", salarioBase=" + salarioBase + ", lenguajeProgDom=" + lenguajeProgDom + ", horarioTrabajo=" + horarioTrabajo + '}';
+        return "nombre=" + nombre;
     }
 
 }

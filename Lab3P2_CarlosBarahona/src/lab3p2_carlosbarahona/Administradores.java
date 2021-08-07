@@ -9,10 +9,8 @@ package lab3p2_carlosbarahona;
  *
  * @author Admin
  */
-public class Administradores {
+public class Administradores extends Usuario {
 
-    private String usuario;
-    private String contraseña;
     private String nombre;
     private String apellido;
     private int ID;
@@ -21,9 +19,8 @@ public class Administradores {
     private int salarioBase;
     private int añosExperienciaV;
 
-    public Administradores(String usuario, String contraseña, String nombre, String apellido, int ID, String puesto, int añosCargo, int salarioBase, int añosExperienciaV) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+    public Administradores(String nombre, String apellido, int ID, String puesto, int añosCargo, int salarioBase, int añosExperienciaV, String usuario, String contraseña) {
+        super(usuario, contraseña);
         this.nombre = nombre;
         this.apellido = apellido;
         this.ID = ID;
@@ -31,22 +28,6 @@ public class Administradores {
         this.añosCargo = añosCargo;
         this.salarioBase = salarioBase;
         this.añosExperienciaV = añosExperienciaV;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
     }
 
     public String getNombre() {
@@ -107,7 +88,7 @@ public class Administradores {
 
     @Override
     public String toString() {
-        return "Administradores{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellido=" + apellido + ", ID=" + ID + ", puesto=" + puesto + ", a\u00f1osCargo=" + añosCargo + ", salarioBase=" + salarioBase + ", a\u00f1osExperienciaV=" + añosExperienciaV + '}';
+        return "nombre=" + nombre;
     }
 
 }

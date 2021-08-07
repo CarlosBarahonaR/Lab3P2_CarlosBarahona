@@ -9,10 +9,9 @@ package lab3p2_carlosbarahona;
  *
  * @author Admin
  */
-public class Motoristas {
+public class Motoristas extends Usuario {
 
-    private String usuario;
-    private String contraseña;
+
     private String nombre;
     private String apellido;
     private int ID;
@@ -23,9 +22,9 @@ public class Motoristas {
     private String medioTransporte;
     private int cantidadEncargosVez;
 
-    public Motoristas(String usuario, String contraseña, String nombre, String apellido, int ID, String puesto, int añosCargo, int salarioBase, int comisiones, String medioTransporte, int cantidadEncargosVez) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
+    public Motoristas(String nombre, String apellido, int ID, String puesto, int añosCargo, int salarioBase, int comisiones, String medioTransporte, int cantidadEncargosVez, String usuario, String contraseña) {
+        super(usuario, contraseña);
+       
         this.nombre = nombre;
         this.apellido = apellido;
         this.ID = ID;
@@ -37,21 +36,9 @@ public class Motoristas {
         this.cantidadEncargosVez = cantidadEncargosVez;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
+  
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public String getNombre() {
         return nombre;
@@ -127,7 +114,7 @@ public class Motoristas {
 
     @Override
     public String toString() {
-        return "Motoristas{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellido=" + apellido + ", ID=" + ID + ", puesto=" + puesto + ", a\u00f1osCargo=" + añosCargo + ", salarioBase=" + salarioBase + ", comisiones=" + comisiones + ", medioTransporte=" + medioTransporte + ", cantidadEncargosVez=" + cantidadEncargosVez + '}';
+        return "nombre=" + nombre ;
     }
 
 }
